@@ -1,4 +1,4 @@
-namespace WindownsForms
+namespace WindowsForms
 {
     internal static class Program
     {
