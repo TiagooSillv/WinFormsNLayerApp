@@ -6,7 +6,12 @@ using System.Threading.Tasks;
 
 namespace Negocio.comun
 {
-    internal class EntidadeBase
+    public abstract class EntidadeBase
     {
+        public int Id{ get; set;}
+        public DateTime CriadaEm { get; set; }
+        public string CriadoPor { get; set; }
+        public DateTime AlteradoEm { get; set; }
+        public string AlteradoPor { get; set; }
     }
 }
