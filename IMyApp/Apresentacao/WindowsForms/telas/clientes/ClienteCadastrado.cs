@@ -19,9 +19,6 @@ namespace WindowsForms.telas.clientes
             InitializeComponent();
 
             var cliente = new Cliente();
-
-            var pessoa = new Pessoa();
-            pessoa.
             
         }
     }
