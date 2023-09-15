@@ -33,11 +33,11 @@
             txtCargo = new TextBox();
             chkStatus = new CheckBox();
             btnNovoCargo = new Button();
-            dataGridView1 = new DataGridView();
+            dataGridView = new DataGridView();
             lblRecarregar = new Button();
             label2 = new Label();
             groupBoxCargo.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridView).BeginInit();
             SuspendLayout();
             // 
             // groupBoxCargo
@@ -90,14 +90,15 @@
             btnNovoCargo.UseVisualStyleBackColor = true;
             btnNovoCargo.Click += btnNovoCargo_Click;
             // 
-            // dataGridView1
+            // dataGridView
             // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(12, 165);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowTemplate.Height = 25;
-            dataGridView1.Size = new Size(769, 226);
-            dataGridView1.TabIndex = 6;
+            dataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView.Location = new Point(12, 165);
+            dataGridView.Name = "dataGridView";
+            dataGridView.RowTemplate.Height = 25;
+            dataGridView.Size = new Size(769, 226);
+            dataGridView.TabIndex = 6;
+            dataGridView.CellMouseDoubleClick += dataGridView_CellMouseDoubleClick;
             // 
             // lblRecarregar
             // 
@@ -107,6 +108,7 @@
             lblRecarregar.TabIndex = 7;
             lblRecarregar.Text = "Recarregar";
             lblRecarregar.UseVisualStyleBackColor = true;
+            lblRecarregar.Click += lblRecarregar_Click;
             // 
             // label2
             // 
@@ -124,14 +126,15 @@
             ClientSize = new Size(800, 410);
             Controls.Add(label2);
             Controls.Add(lblRecarregar);
-            Controls.Add(dataGridView1);
+            Controls.Add(dataGridView);
             Controls.Add(btnNovoCargo);
             Controls.Add(groupBoxCargo);
             Name = "CargoView";
             Text = "CargoView";
+            Load += CargoView_Load;
             groupBoxCargo.ResumeLayout(false);
             groupBoxCargo.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridView).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -143,7 +146,7 @@
         private TextBox txtCargo;
         private CheckBox chkStatus;
         private Button btnNovoCargo;
-        private DataGridView dataGridView1;
+        private DataGridView dataGridView;
         private Button lblRecarregar;
         private Label label2;
     }

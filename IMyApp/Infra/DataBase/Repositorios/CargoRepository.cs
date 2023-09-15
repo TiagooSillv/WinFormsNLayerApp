@@ -49,26 +49,18 @@ namespace Database.Repositorios
                 throw;
             }
         }
-        public bool Atualizar(Cargo cargo)
+        public bool Atualizar(Cargo cargo, int id)
         {
             
             try
             {
                 
                 var sql = @"UPDATE [dbo].[Cargo]
-                           SET ([Nome]
-                 ,[Status]
-                 ,[CriadoEm]
-                 ,[CriadoPor]
-                 ,[AlteradoPor]
-                 ,[AlteradoEm])
-                    VALUES
-                 (@Nome,
-                 @Status,
-                 @CriadoEm, 
-                 @CriadoPor,
-                 @AlteradoPor,
-                 @AlteradoEm)";
+                           SET [Nome] = @Nome
+                              ,[Status] = @Status
+                              ,[AlteradoEm] = @AlteradoEm
+                              ,[AlteradoPor] = @AlteradoPor
+                         WHERE Id = @id";
 
                 using (var connection = new SqlConnection(SqlServer.StrConexao()))
                 {
@@ -76,11 +68,16 @@ namespace Database.Repositorios
                     connection.Open();
                     var cmd = new SqlCommand(sql, connection);
 
-                    cmd.Parameters.AddWithValue("@nome", cargo.Nome);
+                    cmd.Parameters.AddWithValue("@Nome", cargo.Nome);
+                    cmd.Parameters.AddWithValue("@Status", cargo.Status);
+                    cmd.Parameters.AddWithValue("@AlteradoEm", cargo.AlteradoEm);
+                    cmd.Parameters.AddWithValue("@AlteradoPor", cargo.AlteradoPor);
+                    cmd.Parameters.AddWithValue("@id", id);
 
                     var resposta = cmd.ExecuteNonQuery();
-                    return resposta == 1;
+
                     connection.Close() ;
+                    return resposta == 1;
                 }
             }
             catch (Exception)
@@ -125,10 +122,12 @@ namespace Database.Repositorios
             }
         }
        
-        public DataTable ObterTodos (Cargo cargo)
+        public DataTable ObterTodos ()
         {
-            var sql = @"SELECT * FROM [dbo].[Cargo]";
+            var sql = @"SELECT [Id],[Nome],[Status], [AlteradoEm] FROM [dbo].[Cargo]";
+
             SqlDataAdapter dataAdapter = null;
+
             var datatable = new DataTable();
 
             try
@@ -142,9 +141,12 @@ namespace Database.Repositorios
 
                     dataAdapter = new SqlDataAdapter(cmd.CommandText, connection);
                     dataAdapter.Fill(datatable);
+
+                    connection.Close();
+                    
                     return datatable;
 
-                    connection.Close ();
+                    
                 }
             }
             catch (Exception)
