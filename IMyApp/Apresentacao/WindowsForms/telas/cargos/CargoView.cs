@@ -72,7 +72,7 @@ namespace WindowsForms.telas.cargos
 
             carregarCargos();
         }
-
+         
         private void dataGridView_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             if (e.RowIndex >= 0)
