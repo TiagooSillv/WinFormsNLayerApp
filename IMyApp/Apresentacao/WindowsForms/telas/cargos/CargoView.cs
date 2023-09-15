@@ -32,7 +32,7 @@ namespace WindowsForms.telas.cargos
             var cargoRepository = new CargoRepository();
 
             if (id > 0)
-            {               
+            {
 
                 var atualizarCargo = new CargoRepository();
                 atualizarCargo.Atualizar(novoCargo, id);
@@ -62,8 +62,8 @@ namespace WindowsForms.telas.cargos
 
         private void CargoView_Load(object sender, EventArgs e)
         {
-            
-            
+
+
             carregarCargos();
         }
 
@@ -72,7 +72,7 @@ namespace WindowsForms.telas.cargos
 
             carregarCargos();
         }
-         
+
         private void dataGridView_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             if (e.RowIndex >= 0)
@@ -82,8 +82,9 @@ namespace WindowsForms.telas.cargos
                 txtCargo.Text = row.Cells[1].Value.ToString();
                 chkStatus.Checked = Convert.ToBoolean(row.Cells[2].Value.ToString());
 
-                id = Convert.ToInt32 (row.Cells[0].Value) ;
-
+                id = Convert.ToInt32(row.Cells[0].Value);
+                btnSalvar.Text = "Atualizar";
+                btnDeletar.Visible = true;
             }
         }
     }

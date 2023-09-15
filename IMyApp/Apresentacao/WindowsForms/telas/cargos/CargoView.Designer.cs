@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             groupBoxCargo = new GroupBox();
+            btnDeletar = new Button();
             btnSalvar = new Button();
             txtCargo = new TextBox();
             chkStatus = new CheckBox();
@@ -42,6 +43,7 @@
             // 
             // groupBoxCargo
             // 
+            groupBoxCargo.Controls.Add(btnDeletar);
             groupBoxCargo.Controls.Add(btnSalvar);
             groupBoxCargo.Controls.Add(txtCargo);
             groupBoxCargo.Controls.Add(chkStatus);
@@ -53,9 +55,19 @@
             groupBoxCargo.Text = "Novo cargo";
             groupBoxCargo.Visible = false;
             // 
+            // btnDeletar
+            // 
+            btnDeletar.Location = new Point(628, 21);
+            btnDeletar.Name = "btnDeletar";
+            btnDeletar.Size = new Size(126, 23);
+            btnDeletar.TabIndex = 9;
+            btnDeletar.Text = "Deletar";
+            btnDeletar.UseVisualStyleBackColor = true;
+            btnDeletar.Visible = false;
+            // 
             // btnSalvar
             // 
-            btnSalvar.Location = new Point(562, 22);
+            btnSalvar.Location = new Point(485, 21);
             btnSalvar.Name = "btnSalvar";
             btnSalvar.Size = new Size(124, 23);
             btnSalvar.TabIndex = 2;
@@ -149,5 +161,6 @@
         private DataGridView dataGridView;
         private Button lblRecarregar;
         private Label label2;
+        private Button btnDeletar;
     }
 }
