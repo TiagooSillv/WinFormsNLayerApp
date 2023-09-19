@@ -1,15 +1,34 @@
-﻿using System;
+﻿using Negocio.entidades;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.Metadata;
+using System.Reflection.Metadata.Ecma335;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Negocio.comun
 {
-    public  abstract class Pessoa
+    public  abstract class Pessoa : EntidadeBase
     {
-        public int Id { get; set; }
         public string Nome { get; set; }
+        public string Telefone { get; set; }
+        public DateTime Nascimento { get; set; }
+        public string Cpf { get; set; }
+        public string Rg { get; set; }
+        public string Genero { get; set; }
+        public string Departamento { get; set; }
+        public string Cargo { get; set; }
+        public bool Status { get; set; }
+        public string EnderecoEstado { get; set; }
+        public string EnderecoCidade { get; set; }
+        public string EnderecoBairro { get; set; }
+        public string EnderecoRua { get; set; }
+        public string EnderecoNumero { get; set; }
+        public string Nacionalidade { get; set; }
+        public string EstadoCivil { get; set; }
+
+
     }
 
 }
