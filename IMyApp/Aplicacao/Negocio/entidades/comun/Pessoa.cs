@@ -17,8 +17,6 @@ namespace Negocio.comun
         public string Cpf { get; set; }
         public string Rg { get; set; }
         public string Genero { get; set; }
-        public string Departamento { get; set; }
-        public string Cargo { get; set; }
         public bool Status { get; set; }
         public string EnderecoEstado { get; set; }
         public string EnderecoCidade { get; set; }

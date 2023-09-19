@@ -11,6 +11,7 @@ namespace Negocio.entidades
     {
         public string Departamento { get; set; }
         public string Cargo { get; set; }
+        public DateTime DataAdmissao { get; set; }
 
 
         public Colaborador ( string nome,
@@ -30,7 +31,8 @@ namespace Negocio.entidades
                             string enderecoRua,
                             string enderecoNumero,
                             string nacionalidade,
-                            string estadoCivil ) 
+                            string estadoCivil,
+                            DateTime dataAdmissao) 
                         
         {
             nome = Nome;
@@ -52,6 +54,7 @@ namespace Negocio.entidades
             enderecoNumero = EnderecoNumero;
             estadoCivil = EstadoCivil;
             nacionalidade = Nacionalidade;
+            dataAdmissao = DataAdmissao;
         }
     }
 }
