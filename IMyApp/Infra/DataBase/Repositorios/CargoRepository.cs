@@ -5,26 +5,40 @@ using System.Data;
 
 namespace Database.Repositorios
 {
+    /// <summary>
+    /// <c> Cargo Repository </c> - Executa comandos SQL (CROUD) na tabela de [dbo].[Cargo]
+    /// <exemple> Exemplo: 
+    ///     var repositorio = new CargoRepository(); 
+    /// </exemple>
+    /// </summary>
+    /// <returns></returns>
+    /// 
     public class CargoRepository
     {
+       /// <summary>
+       /// Insere um novo rgistro na tabela Cargo
+       /// <exemple>
+       /// <code>
+       /// 
+       /// var cargoRepositorio = new cargo Repository();
+       /// var cargo = new Cargo() ("Nome","Status","AlteradoEm","AlteradoPor");
+       /// var resultado = cargoRepositorio.Inserir(cargo);
+       /// 
+       /// </code>
+       /// </exemple>
+       /// </summary>
+       /// <param name="cargo"></param>
+       /// <returns> True or False </returns>
         public bool Inserir(Cargo cargo)
         {
             try
             {
-                var sql = @"INSERT INTO [dbo].[Cargo]
-                  ([Nome]
-                 ,[Status]
-                 ,[CriadoEm]
-                 ,[CriadoPor]
-                 ,[AlteradoPor]
-                 ,[AlteradoEm])
-              VALUES
-                 (@Nome,
-                 @Status,
-                 @CriadoEm, 
-                 @CriadoPor,
-                 @AlteradoPor,
-                 @AlteradoEm)";
+                var sql = @"INSERT INTO [dbo].[Cargo]([Nome],[Status],[CriadoEm] ,[CriadoPor],[AlteradoPor],[AlteradoEm])
+
+                    VALUES
+
+                        (@Nome, @Status, @CriadoEm, @CriadoPor, @AlteradoPor,@AlteradoEm)"
+                ;
 
                 using(var connection = new SqlConnection(SqlServer.StrConexao()))
                 {
@@ -38,9 +52,11 @@ namespace Database.Repositorios
                     cmd.Parameters.AddWithValue("@AlteradoPor", cargo.AlteradoPor);
                     cmd.Parameters.AddWithValue("@AlteradoEm", cargo.AlteradoEm);
                     var resposta = cmd.ExecuteNonQuery();
-                    return resposta == 1;
 
                     connection.Close();
+                    
+                    return resposta == 1;
+
 
                 }
             }
@@ -48,7 +64,7 @@ namespace Database.Repositorios
             {
                 throw;
             }
-        }
+        } 
         public bool Atualizar(Cargo cargo, int id)
         {
             

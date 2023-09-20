@@ -69,5 +69,16 @@ namespace WindowsForms.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Firefly_cria_uma_imagem_para_tela_de_carregamento_com_uma_engrenagem_e_um_computador_de_fundo_com_o_ {
+            get {
+                object obj = ResourceManager.GetObject("Firefly cria uma imagem para tela de carregamento com uma engrenagem e um computa" +
+                        "dor de fundo com o ", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }
