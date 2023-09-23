@@ -18,7 +18,7 @@ namespace DataBase.conexoes
         /// <returns> string: ConnectionString </returns>
         internal static string StrConexao()
         {
-            return "Data Source=.\\SQLEXPRESS;Initial Catalog=IMyApp;User ID=sa;Password=sql2022; Trusted_Connection = False; TrustServerCertificate = True;";
+            return "Data Source=.\\SQLEXPRESS;Initial Catalog=NorthWind;User ID=sa;Password=sql2022; Trusted_Connection = False; TrustServerCertificate = True;";
         }
 
 
